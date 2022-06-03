@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 #include <nlohmann/json.hpp>
 #include <vector>
+#include "question.hpp"
 
 using namespace std;
 using namespace nlohmann;
@@ -9,13 +10,10 @@ using namespace nlohmann;
 class Quiz {
 protected:
 json jason;
-string question;
-string answer;
-vector<string> wrongAnswers;
-map<int, string> cipher;
+vector<Question> questions;
 public:
-Quiz();
+Quiz(int numQuestions);
 ~Quiz();
 //void printQuestion(/*json jason,*/ int i);
-json curlJSON();
+json curlJSON(int numQuestions);
 };

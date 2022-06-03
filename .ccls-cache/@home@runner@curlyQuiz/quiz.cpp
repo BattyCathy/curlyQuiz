@@ -4,17 +4,19 @@
 using namespace std; 
 
 
-json Quiz::curlJSON() {
-  std::cout << "Test Reading JSON Data Containing Many Questions\n";
-
-	system("curl \"https://opentdb.com/api.php?amount=10&category=19\" > data.txt");
+json Quiz::curlJSON(int numQuestions) {
+  string fileName = "\" > data.txt";
+  string num = to_string(numQuestions);
+  string command = "curl \"https://opentdb.com/api.php?amount=" + num + fileName;
+  
+	system(command.c_str());
 
   ifstream file;
   file.open("data.txt");
   json ret;
   file>>ret;
-  system("rm data.txt\n");
-  system("clear\n");
+  system("rm data.txt");
+  system("clear");
   return ret;
   
 }
@@ -26,11 +28,12 @@ json Quiz::curlJSON() {
 // }
 
 
-Quiz::Quiz() {
-  jason = Quiz::curlJSON();
-  question = jason["results"][0]["question"];
-  answer = jason["results"][0]["correct_answer"];
-  cout<<question<<"\n"<<answer<<endl;
+Quiz::Quiz(int numQuestions) {
+  jason = Quiz::curlJSON(numQuestions);
+  for (int i = 0; i < jason["results"].size(); i++) {
+    Question q = Question(i, jason);
+    questions.push_back(q);
+  }
   
   //printQuestion(/*jason,*/ 0);
   
