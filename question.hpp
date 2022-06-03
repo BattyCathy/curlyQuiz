@@ -14,7 +14,10 @@ vector<string> wrongAnswers;
 map<int, string> cipher;
 
 public:
-Question(int i, json jason);
+Question(json sonOfJason);
 ~Question();
+
+/* bool */void ask();
+
 };
 

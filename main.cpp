@@ -5,9 +5,9 @@
 
 
 int main() {
-  cout<<"How many quiz questions do you want?"<<endl;
-  int questions;
-  cin>>questions;
-  Quiz q = Quiz(questions);
+ // cout<<"How many quiz questions do you want?"<<endl;
+ // int questions;
+  //cin>>questions;
+  Quiz q = Quiz(1);
  // q.printQuestion(0);
 }
