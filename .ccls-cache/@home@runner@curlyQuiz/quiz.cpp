@@ -33,8 +33,18 @@ Quiz::Quiz(int numQuestions) {
     json sonOfJason = jason["results"][i];
     Question q = Question(sonOfJason);
     questions.push_back(q);
-    q.ask();
+    if (q.ask()) {
+      //profile.insert({q.category(), profile[q.category()] + 1});
+      profile[q.category()]++;
+    } else {
+      //profile.insert({q.category(), profile[q.category()] - 1});
+      profile[q.category()]--;
+    }
+    cout<<profile[q.category()]<<endl;
+    cout<<q.category()<<endl;
   }
+
+  
   
   //printQuestion(/*jason,*/ 0);
   

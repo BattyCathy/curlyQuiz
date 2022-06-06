@@ -8,6 +8,6 @@ int main() {
  // cout<<"How many quiz questions do you want?"<<endl;
  // int questions;
   //cin>>questions;
-  Quiz q = Quiz(1);
+  Quiz q = Quiz(10);
  // q.printQuestion(0);
 }

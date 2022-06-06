@@ -2,9 +2,18 @@
 #include <algorithm>
 
 using namespace std;
+string Question::category() {
+  string cat = sonOfJason["category"];
+  return cat;
+}
+
+string Question::difficulty() {
+  string dif = sonOfJason["difficulty"];
+  return dif;
+}
 
 Question::Question(json sonOfJason) {
-  
+  Question::sonOfJason = sonOfJason;
   question = sonOfJason["question"];
 
   answer = sonOfJason["correct_answer"];
@@ -20,7 +29,7 @@ Question::~Question() {
   
 }
 
-void Question::ask() {
+bool Question::ask() {
   wrongAnswers.push_back(answer);
   random_shuffle(wrongAnswers.begin(), wrongAnswers.end());
   int i = 1;
@@ -41,7 +50,9 @@ void Question::ask() {
   }
   if (cipher[guess] == answer) {
     cout<<"Correct!"<<endl;
+    return true;
   } else {
     cout<<"Wrong. The correct answer was "<<answer<<endl; 
+    return false;
   }
 }

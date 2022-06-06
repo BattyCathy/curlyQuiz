@@ -11,6 +11,8 @@ class Quiz {
 protected:
 json jason;
 vector<Question> questions;
+map<string, int> profile;
+
 public:
 Quiz(int numQuestions);
 ~Quiz();

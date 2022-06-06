@@ -12,12 +12,15 @@ string question;
 string answer;
 vector<string> wrongAnswers;
 map<int, string> cipher;
+json sonOfJason;
+
 
 public:
 Question(json sonOfJason);
 ~Question();
-
-/* bool */void ask();
+string category();
+string difficulty();
+bool ask();
 
 };
 
