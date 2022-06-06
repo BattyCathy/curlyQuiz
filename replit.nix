@@ -5,6 +5,5 @@
 		pkgs.gdb
 		pkgs.gnumake
     pkgs.nlohmann_json
-    
 	];
 }
